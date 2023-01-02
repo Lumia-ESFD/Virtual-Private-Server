@@ -28,7 +28,7 @@ jobs:
       # tmate
       - name: install tmate and run tmate
         run: |
-          csexton/debugger-action@master
+          mxschmitt/action-tmate@v3
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
