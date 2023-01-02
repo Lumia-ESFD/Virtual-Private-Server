@@ -28,8 +28,7 @@ jobs:
       # tmate
       - name: install tmate and run tmate
         run: |
-          sudo -E apt install tmate -y
-          tmate
+          csexton/debugger-action@master
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
