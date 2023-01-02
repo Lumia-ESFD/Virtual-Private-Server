@@ -28,7 +28,7 @@ jobs:
       # tmate
       - name: install tmate and run tmate
         run: |
-          sudo install tmate -y
+          sudo -E apt install tmate -y
           tmate
 
       # Runs a single command using the runners shell
