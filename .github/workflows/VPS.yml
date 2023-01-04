@@ -28,7 +28,9 @@ jobs:
       # tmate
       - name: install tmate and run tmate
         run: |
-          mxschmitt/action-tmate@v3
+          sudo apt install tmate -y
+          tmate show-messages
+
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
