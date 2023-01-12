@@ -26,10 +26,8 @@ jobs:
       - uses: actions/checkout@v3
 
       # tmate
-      - name: install tmate and run tmate
-        run: |
-          sudo -E chmod +x ${GITHUB_WORKSPACE}/files/frpc
-          sudo -E ${GITHUB_WORKSPACE}/files/frpc -c ${GITHUB_WORKSPACE}/files/frpc.ini
+      - name: Setup Debug Session
+        uses: csexton/debugger-action@master
 
       # Sleep time
       - name: Sleep for 30 minutes
