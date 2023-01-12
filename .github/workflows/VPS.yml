@@ -30,6 +30,11 @@ jobs:
         run: |
           sudo ls -h
 
+      # Sleep time
+      - name: Sleep for 30 minutes
+        run: sleep 30s
+        shell: bash
+
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
