@@ -23,9 +23,15 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+<<<<<<< HEAD
+      - uses: actions/checkout@v3
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+=======
     - uses: actions/checkout@v3
     - name: Setup tmate session
       uses: mxschmitt/action-tmate@v3
+>>>>>>> 82569ea9cee333d76d4897bf367122f3a6f18f1b
 
       # Sleep time
       - name: Sleep for 30 minutes
