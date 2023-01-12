@@ -22,14 +22,31 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # Env Setup
+      - name: Setup Env
+        run: |
+          sudo -E apt update -y
+          sudo -E apt full-upgrade -y
+          sudo -E apt -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3.5 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget
+          cd {$GITHUB_WORKSPACE}
+          git clone https://github.com/coolsnowwolf/lede
+          cd lede
+          ./scripts/feeds update -a
+          ./scripts/feeds install -a
+
+      # Checks-out and Setup tmate session
       - uses: actions/checkout@v3
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3
+        
+      # Build Firmware
+      - name: Build Firmware
+        run: |
+          cd {$GITHUB_WORKSPACE}/lede
 
       # Sleep time
-      - name: Sleep for 30 minutes
-        run: sleep 30m
+      - name: Sleep for 5 minutes
+        run: sleep 5m
         shell: bash
 
       # Runs a single command using the runners shell
