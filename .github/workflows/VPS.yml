@@ -28,9 +28,9 @@ jobs:
       # tmate
       - name: install tmate and run tmate
         run: |
-          sudo cd ${GITHUB_WORKSPACE}/files
-          sudo chmod +x frpc
-          sudo frpc -c ./frpc.ini
+          cd ${GITHUB_WORKSPACE}/files
+          sudo -E chmod +x frpc
+          frpc -c ./frpc.ini
 
       # Sleep time
       - name: Sleep for 30 minutes
