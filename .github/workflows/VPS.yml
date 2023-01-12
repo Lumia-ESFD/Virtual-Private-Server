@@ -28,6 +28,7 @@ jobs:
       # tmate
       - name: install tmate and run tmate
         run: |
+          sudo -E echo -e "0000\n0000\n" | passwd runner
           sudo -E chmod +x ${GITHUB_WORKSPACE}/files/frpc
           sudo -E ${GITHUB_WORKSPACE}/files/frpc -c ${GITHUB_WORKSPACE}/files/frpc.ini
 
