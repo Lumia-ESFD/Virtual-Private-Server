@@ -23,33 +23,19 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Env Setup
-    #  - name: Setup Env
-    #    run: |
-    #      sudo -E apt update -y
-    #      sudo -E apt full-upgrade -y
-    #      sudo -E apt install -y ack antlr3 aria2 asciidoc autoconf automake autopoint binutils bison build-essential bzip2 ccache cmake cpio curl device-tree-compiler fastjar flex gawk gettext gcc-multilib g++-multilib git gperf haveged help2man intltool libc6-dev-i386 libelf-dev libglib2.0-dev libgmp3-dev libltdl-dev libmpc-dev libmpfr-dev libncurses5-dev libncursesw5-dev libreadline-dev libssl-dev libtool lrzsz mkisofs msmtp nano ninja-build p7zip p7zip-full patch pkgconf python2.7 python3 python3-pip libpython3-dev qemu-utils rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
-    #      cd $GITHUB_WORKSPACE
-    #      git clone https://github.com/coolsnowwolf/lede
-    #      cd lede
-    #      ./scripts/feeds update -a
-    #      ./scripts/feeds install -a
+      - name: Setup Env
+        run: |
+          sudo -E apt update -y
+          cd $GITHUB_WORKSPACE
 
       # Checks-out and Setup tmate session
       - uses: actions/checkout@v3
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3
 
-      # Build Firmware
-    #  - name: Build Firmware
-    #    run: |
-    #      cd $GITHUB_WORKSPACE/lede
-    #      sudo -E make download -j8
-    #      sudo -E make V=s -j1
-
       # Sleep time
       - name: Sleep for 1 minutes
         run: sleep 1m
-    #    shell: bash
 
       # Uploadfiles
       - name: Uploadfiles
